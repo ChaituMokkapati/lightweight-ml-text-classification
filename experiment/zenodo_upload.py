@@ -13,7 +13,7 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 ZIP_PATH = ROOT / "Mokkapati-Syyed-Devarasetty-lightweight-ml-text-classification-v1.1.0.zip"
 ZENODO_API = "https://zenodo.org/api"
-PREVIOUS_RECORD_ID = 20780973
+PREVIOUS_RECORD_ID = os.environ.get("ZENODO_PREVIOUS_RECORD_ID", "20781441")
 TOKEN = os.environ.get("ZENODO_ACCESS_TOKEN", "")
 VERSION = "v1.1.0"
 
@@ -63,9 +63,21 @@ METADATA = {
         "Models for Text Classification."
     ),
     "creators": [
-        creator("Chaitanya", "Mokkapati", "DVR & Dr. HS MIC College of Technology"),
-        creator("Nagulmeera", "Syyed", "DVR & Dr. HS MIC College of Technology"),
-        creator("Prasad", "Devarasetty", "DVR & Dr. HS MIC College of Technology"),
+        creator(
+            "Chaitanya",
+            "Mokkapati",
+            "DVR & Dr. HS MIC College of Technology, Department of Artificial Intelligence and Machine Learning",
+        ),
+        creator(
+            "Prasad",
+            "Devarasetty",
+            "DVR & Dr. HS MIC College of Technology, Department of Computer Science and Engineering",
+        ),
+        creator(
+            "Nagulmeera",
+            "Syyed",
+            "DVR & Dr. HS MIC College of Technology, Department of Artificial Intelligence and Machine Learning",
+        ),
     ],
     "keywords": [
         {"subject": "text classification"},
@@ -105,13 +117,17 @@ def main() -> int:
         return 1
 
     try:
-        draft = request(
-            f"{ZENODO_API}/records/{PREVIOUS_RECORD_ID}/versions",
-            data=b"{}",
-            method="POST",
-        )
+        if PREVIOUS_RECORD_ID:
+            draft = request(
+                f"{ZENODO_API}/records/{PREVIOUS_RECORD_ID}/versions",
+                data=b"{}",
+                method="POST",
+            )
+        else:
+            draft = request(f"{ZENODO_API}/records", data=b"{}", method="POST")
     except urllib.error.HTTPError as exc:
-        print(f"Failed to create new version: {exc.code} {exc.read().decode(errors='replace')}")
+        action = "new version" if PREVIOUS_RECORD_ID else "new deposit"
+        print(f"Failed to create {action}: {exc.code} {exc.read().decode(errors='replace')}")
         return 1
 
     draft_id = draft["id"]
@@ -166,9 +182,12 @@ def main() -> int:
         return 1
 
     doi = published.get("doi") or published.get("pids", {}).get("doi", {}).get("identifier", "unknown")
+    parent = published.get("parent") or {}
+    concept = parent.get("id") or parent.get("pids", {}).get("doi", {}).get("identifier", "")
     record_url = published.get("links", {}).get("self_html", "")
     print(f"Published DOI: {doi}")
-    print(f"Concept DOI: 10.5281/zenodo.20780569")
+    if concept:
+        print(f"Concept DOI: {concept}")
     print(f"Record: {record_url}")
     return 0
 

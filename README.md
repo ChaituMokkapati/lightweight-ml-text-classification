@@ -8,9 +8,9 @@ Reproducible CPU-only benchmark comparing five classical machine learning models
 
 ## Authors
 
-- Chaitanya Mokkapati — DVR & Dr. HS MIC College of Technology
-- Nagulmeera Syyed — DVR & Dr. HS MIC College of Technology
-- Dr. Prasad Devarasetty — DVR & Dr. HS MIC College of Technology
+- Chaitanya Mokkapati — DVR & Dr. HS MIC College of Technology (AI & ML)
+- Dr. Prasad Devarasetty — DVR & Dr. HS MIC College of Technology (CSE)
+- Nagulmeera Syyed — DVR & Dr. HS MIC College of Technology (AI & ML)
 
 ## Repository structure
 
@@ -51,7 +51,7 @@ Intel Xeon @ 2.20 GHz, 2 cores, 12 GB RAM, Ubuntu 22.04, Python 3.12, CPU-only.
 
 ```bibtex
 @article{mokkapati2026lightweight,
-  author  = {Mokkapati, Chaitanya and Syyed, Nagulmeera and Devarasetty, Prasad},
+  author  = {Mokkapati, Chaitanya and Devarasetty, Prasad and Syyed, Nagulmeera},
   title   = {A Comparative Study of Classical Lightweight Machine Learning Models for Text Classification},
   journal = {Computing},
   year    = {2026},
@@ -65,9 +65,9 @@ MIT License — see [LICENSE](LICENSE).
 
 ## Archival release
 
-Version-tagged archival release (v1.1.0): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20780973.svg)](https://doi.org/10.5281/zenodo.20780973)
+Version-tagged archival release (v1.1.0): [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20781441.svg)](https://doi.org/10.5281/zenodo.20781441)
 
-All versions: [10.5281/zenodo.20780569](https://doi.org/10.5281/zenodo.20780569)
+All versions: [10.5281/zenodo.20781407](https://doi.org/10.5281/zenodo.20781407)
 
 ## Overleaf bundle
 
