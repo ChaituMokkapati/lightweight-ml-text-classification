@@ -1,0 +1,10 @@
+{
+  "BEST_MODEL_SMS": "Linear SVM",
+  "BEST_F1_SMS": "94.1",
+  "BEST_MODEL_AG": "Logistic Regression",
+  "BEST_F1_AG": "90.2",
+  "FASTEST_MODEL": "Linear SVM",
+  "FASTEST_LATENCY_MS": "0.0",
+  "SMALLEST_MODEL": "Linear SVM",
+  "TOTAL_TRAIN_MINUTES": "2.6"
+}

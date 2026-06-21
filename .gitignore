@@ -1,0 +1,32 @@
+# Archives and vendor templates
+*.zip
+springer-nature-latex-template/
+
+# Serialized models (large binaries; regenerate from notebook)
+*.joblib
+
+# Duplicate results run (results2 is canonical)
+/results/
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Generated release archives
+Mokkapati-Syyed-Devarasetty-*-overleaf.zip
+Mokkapati-Syyed-Devarasetty-*-v*.zip
+
+# Internal submission notes (not for public repo)
+manuscript/final_revision_checklist.md
+manuscript/review_response.md
+
+# Local release staging (not for public repo)
+zenodo-release/
